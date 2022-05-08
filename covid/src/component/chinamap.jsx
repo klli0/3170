@@ -4,7 +4,7 @@ import china from '../resources/echartsdata-main/alichina.json';
 
 echarts.registerMap("china", china);
 
-
+/*2022/05/08*/ 
 
 class ChinaMap extends Component {
 
@@ -45,7 +45,8 @@ class ChinaMap extends Component {
                 text: [`最大值：${10000}`, 0],  // 两端的文本,如 `['High', 'Low']`
                 textStyle: {
                     color: "#000" // visualMap 文字的颜色。
-                }
+                },
+                calculable: true
             },
 
             toolbox: {

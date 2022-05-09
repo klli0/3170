@@ -32,10 +32,10 @@ const Navbar = () => {
 
             </li>
             <li>
-                <NavLink to="#">
+                <NavLink to="chinaradarchart">
                     <i className="fa fa-bar-chart-o fa-2x"></i>
                     <span className="nav-text">
-                        Database (global)
+                        Rardar chart
                     </span>
                 </NavLink>
             </li>

@@ -29,15 +29,7 @@ function App() {
         <Route path="/usamap" element={<USAMap />} />
         <Route path="/chinamap" element={<ChinaMap />} />
         <Route path="/chinamap" element={<ChinaMap />} />
-        <Route path="/worldbrokenline" element={<WorldBrokenLine />} />
-        <Route path="/worldtopfivebar" element={<WorldTopFiveBar />} />
-        <Route path="/worldpiechart" element={<WorldPieChart />} />
-        <Route path="/chinabrokenline" element={<ChinaBrokenLine />} />
         <Route path="/chinaradarchart" element={<ChinaRadarChart />} />
-        <Route path="/chinatopfivebar" element={<ChinaTopFivaBar />} />
-        <Route path="/chinapiechart" element={<ChinaPieChart />} />
-        <Route path="/usabrokenline" element={<USABrokenLine />} />
-        <Route path="/usatopfivebar" element={<USATopFiveBar />} />
       </Routes>
     </div>
   );

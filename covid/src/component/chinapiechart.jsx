@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import * as echarts from "echarts";
+import * as userService from "../service/userService";
 class ChinaPieChart extends Component {
     eChartsRef = React.createRef();
     state = {
         option: {
             title: {
-                text: 'Referer of a Website',
-                subtext: 'Fake Data',
+                text: '四大经济分区新冠累计确诊',
                 left: 'center'
             },
             tooltip: {
@@ -39,19 +39,32 @@ class ChinaPieChart extends Component {
             ]
         }
     }
-    componentDidMount() {
+    componentDidMount = async () => {
         const myChart = echarts.init(this.eChartsRef.current);
+        const response = await userService.china_pie_chart();
+        console.log(response)
+        const name = response.data.name;
+        const value = response.data.value;
+        const option = this.state.option
+        var data = [];
+        for (var i = 0; i < 4; i++) {
+            data[i] = {};
 
+            data[i].value = value[i]
+            data[i].name = name[i]
+
+        }
+        option.series[0].data = data
+        this.setState({ option })
+        console.log(this.state.option)
         myChart.setOption(this.state.option);
-        window.onresize = function () {
-            myChart.resize();
-        };
     }
     render() {
         return <div ref={this.eChartsRef} style={{
             width: 800,
             height: 600,
-            margin: 100
+            margin: 100,
+            marginLeft: 400
         }}></div>;
     }
 }

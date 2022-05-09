@@ -4,29 +4,29 @@ const Navbar = () => {
     return (<nav className="main-menu">
         <ul>
             <li>
-                <NavLink to="http://www.bootstrapmb.com">
+                <NavLink to="china">
                     <i className="fa fa-home fa-2x"></i>
                     <span className="nav-text">
-                        Chart (global)
+                        China data
                     </span>
                 </NavLink>
 
             </li>
 
             <li className="has-subnav">
-                <NavLink to="#">
+                <NavLink to="usa">
                     <i className="fa fa-list fa-2x"></i>
                     <span className="nav-text">
-                        Chart (China)
+                        USA data
                     </span>
                 </NavLink>
 
             </li>
             <li className="has-subnav">
-                <NavLink to="#">
+                <NavLink to="world">
                     <i className="fa fa-folder-open fa-2x"></i>
                     <span className="nav-text">
-                        Chart (America)
+                        World data
                     </span>
                 </NavLink>
 
@@ -77,16 +77,6 @@ const Navbar = () => {
                     <i className="fa fa-info fa-2x"></i>
                     <span className="nav-text">
                         Map (America)
-                    </span>
-                </NavLink>
-            </li>
-        </ul>
-        <ul className="logout">
-            <li>
-                <NavLink to="#">
-                    <i className="fa fa-power-off fa-2x"></i>
-                    <span className="nav-text">
-                        退出
                     </span>
                 </NavLink>
             </li>

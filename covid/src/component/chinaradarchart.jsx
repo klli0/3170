@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
 import * as echarts from "echarts";
+import * as userService from "../service/userService";
 class ChinaRadarChart extends Component {
     eChartsRef = React.createRef();
     state = {
         option: {
             title: {
-                text: 'Basic Radar Chart'
+                text: '三项指标数据'
             },
             legend: {
-                data: ['Allocated Budget', 'Actual Spending']
+                data: ['中国', "美国", "世界"]
+            },
+            tooltip: {
+                trigger: 'item'
             },
             radar: {
                 indicator: [
-                    { name: 'Sales', max: 6500 },
-                    { name: 'Administration', max: 16000 },
-                    { name: 'Information Technology', max: 30000 },
-                    { name: 'Customer Support', max: 38000 },
-                    { name: 'Development', max: 52000 },
-                    { name: 'Marketing', max: 25000 }
+                    { name: '病死率', max: 0.05 },
+                    { name: '感染率', max: 0.5 },
+                    { name: '治愈率', max: 1 },
+
                 ]
             },
             series: [
@@ -27,27 +29,60 @@ class ChinaRadarChart extends Component {
                     data: [
                         {
                             value: [4200, 3000, 20000, 35000, 50000, 18000],
-                            name: 'Allocated Budget'
+                            name: "中国"
                         },
                         {
-                            value: [5000, 14000, 28000, 26000, 42000, 21000],
-                            name: 'Actual Spending'
-                        }
+                            value: [4200, 3000, 20000, 35000, 50000, 18000],
+                            name: "美国"
+                        },
+                        {
+                            value: [4200, 3000, 20000, 35000, 50000, 18000],
+                            name: "世界"
+                        },
                     ]
                 }
             ]
         }
     }
-    componentDidMount() {
+    componentDidMount = async () => {
         const myChart = echarts.init(this.eChartsRef.current);
+        const response1 = await userService.china_radar_chart();
+        console.log(response1)
+        const value1 = response1.data.value;
+        const option = this.state.option
+        var data1 = [];
+        for (var i = 0; i < 3; i++) {
+            data1.push(value1[i])
+        }
+        option.series[0].data[0].value = data1
 
+        const response2 = await userService.usa_radar_chart();
+        console.log(response2)
+        const value2 = response2.data.value;
+        var data2 = [];
+        for (var i = 0; i < 3; i++) {
+            data2.push(value2[i])
+        }
+        option.series[0].data[1].value = data2
+
+        const response3 = await userService.world_radar_chart();
+        console.log(response3)
+        const value3 = response3.data.value;
+        var data3 = [];
+        for (var i = 0; i < 3; i++) {
+            data3.push(value3[i])
+        }
+        option.series[0].data[2].value = data3
+        this.setState({ option })
+        console.log(this.state.option)
         myChart.setOption(this.state.option);
     }
     render() {
         return <div ref={this.eChartsRef} style={{
             width: 1200,
-            height: 600,
-            margin: 100
+            height: 800,
+            margin: 100,
+            marginLeft: 200
         }}></div>;
     }
 }

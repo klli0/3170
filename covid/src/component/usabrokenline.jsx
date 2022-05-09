@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import * as echarts from "echarts";
+import * as userService from "../service/userService";
 class USABrokenLine extends Component {
     eChartsRef = React.createRef();
     state = {
         option: {
             title: {
-                text: "折线图数据",
+                text: "美国新冠累计确诊折线图",
+            },
+            tooltip: {
+                trigger: 'axis'
             },
             xAxis: {
                 type: 'category',
@@ -17,6 +21,7 @@ class USABrokenLine extends Component {
                     "2021/08/17",
                     "2021/08/18",
                 ],
+                name: "时间"
             },
             yAxis: {
                 type: 'value'
@@ -28,16 +33,26 @@ class USABrokenLine extends Component {
             }]
         }
     }
-    componentDidMount() {
+    componentDidMount = async () => {
         const myChart = echarts.init(this.eChartsRef.current);
+        const response = await userService.usa_brokenline_chart();
+        console.log(response)
+        const time = response.data.time;
+        const value = response.data.value;
+        const option = this.state.option
+        option.xAxis.data = time
+        option.series[0].data = value
 
+        this.setState({ option })
+        console.log(this.state.option)
         myChart.setOption(this.state.option);
     }
     render() {
         return <div ref={this.eChartsRef} style={{
             width: 1200,
-            height: 400,
-            margin: 100
+            height: 600,
+            margin: 100,
+            marginLeft: 150
         }}></div>;
     }
 }

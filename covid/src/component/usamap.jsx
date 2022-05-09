@@ -93,7 +93,7 @@ class USAMap extends Component {
                     let { data = {} } = params; // 第一个参数 `params` 是 formatter 需要的数据集
                     let { value = 0 } = data;  // 传入的数据值
                     // params.name 数据名，类目名
-                    return `${params.name}<br/>个数: ${value}`;
+                    return `${params.name}<br/>累计确诊人数: ${value}`;
                 }
             },
 

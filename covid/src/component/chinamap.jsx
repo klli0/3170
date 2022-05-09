@@ -6,11 +6,6 @@ echarts.registerMap("china", china);
 
 /*2022/05/08*/ 
 
-function trans(data){
-
-    return data.name.map((name,index)=>({name,value:data.value[index]}))
-}
-
 
 
 class ChinaMap extends Component {
@@ -25,8 +20,9 @@ class ChinaMap extends Component {
 
             title: {
                 // 标题组件
-                text: "China Covid-17 Statistics", // 主标题文本
+                text: "中国累计新冠确诊统计", // 主标题文本
                 left: "center",
+                top:30,
                 textStyle: {
                     color: "#000" // 主标题文字的颜色
                 }
@@ -37,7 +33,7 @@ class ChinaMap extends Component {
                 type: "continuous", // 连续型
                 left: "right", // visualMap 组件离容器左侧的距离,值为`'left'`, `'center'`, `'right'`，组件会根据相应的位置自动对齐。
                 min: 0,        // 指定允许的最小值
-                max: 700,      // 指定允许的最大值,这里进行动态设置
+                max: 5000,      // 指定允许的最大值,这里进行动态设置
                 inRange: {     // 定义 **在选中范围中** 的视觉元素
                     // 图元的颜色
                     // 这里以这数组所填写的颜色点作为基准，形成一种『渐变』的色带，数据映射到这个色带上
@@ -49,7 +45,7 @@ class ChinaMap extends Component {
                     "#942005"
                     ]
                 },
-                text: [`最大值：${70000}`, 0],  // 两端的文本,如 `['High', 'Low']`
+                text: [`最大值：${5000}`, 0],  // 两端的文本,如 `['High', 'Low']`
                 textStyle: {
                     color: "#000" // visualMap 文字的颜色。
                 },
@@ -60,7 +56,7 @@ class ChinaMap extends Component {
                 // 工具导航
                 show: true, // 是否显示工具栏组件。
                 //orient: 'vertical', // 工具栏 icon 的布局朝向。
-                left: "left",         // 工具栏组件离容器左侧的距离
+                left: "right",         // 工具栏组件离容器左侧的距离
                 top: "top",           // 工具栏组件离容器上侧的距离
                 feature: {   // 各工具配置项
                     // dataView: { readOnly: false }, // 数据视图工具，可以展现当前图表所用的数据，编辑后可以动态更新。
@@ -96,48 +92,154 @@ class ChinaMap extends Component {
                 itemStyle: { // 地图区域的多边形 图形样式
                     areaColor: "#fff" // 地图图形颜色
                 },
-                roam: true, // 是否开启鼠标缩放和平移漫游。默认不开启。如果只想要开启缩放或者平移，可以设置成 `'scale'` 或者 `'move'`。设置成 `true` 为都开启
-                zoom: 1.2, // 当前视角的缩放比例
+                roam: false, // 是否开启鼠标缩放和平移漫游。默认不开启。如果只想要开启缩放或者平移，可以设置成 `'scale'` 或者 `'move'`。设置成 `true` 为都开启
+                zoom: 1, // 当前视角的缩放比例
                 scaleLimit: { // 滚轮缩放的极限控制，默认的缩放为`1`
                     max: 2, // 最大的缩放值
                     min: 1  // 最小的缩放值
                 },
-                top: "10%", // 距离顶部距离
+                top: "0%", // 距离顶部距离
+                left: "10%",
+                right: "10%",
 
-                data : [{"name": "上海市", "value": "641"}, 
-                        {"name": "云南省", "value": "185"}, 
-                        {"name": "内蒙古自治区", "value": "194"}, 
-                        {"name": "北京市", "value": "593"}, 
-                        {"name": "台湾省", "value": "428"}, 
-                        {"name": "吉林省", "value": "109"}, 
-                        {"name": "四川省", "value": "561"}, 
-                        {"name": "天津市", "value": "190"}, 
-                        {"name": "宁夏回族自治区", "value": "75"}, 
-                        {"name": "安徽省", "value": "991"}, 
-                        {"name": "山东省", "value": "787"}, 
-                        {"name": "山西省", "value": "197"}, 
-                        {"name": "广东省", "value": "1585"}, 
-                        {"name": "广西壮族自治区", "value": "254"}, 
-                        {"name": "新疆维吾尔自治区", "value": "76"}, 
-                        {"name": "江苏省", "value": "653"}, 
-                        {"name": "江西省", "value": "937"}, 
-                        {"name": "河北省", "value": "328"}, 
-                        {"name": "河南省", "value": "1276"}, 
-                        {"name": "浙江省", "value": "1268"}, 
-                        {"name": "海南省", "value": "168"}, 
-                        {"name": "湖北省", "value": "68128"}, 
-                        {"name": "湖南省", "value": "1019"}, 
-                        {"name": "澳门", "value": "45"}, 
-                        {"name": "甘肃省", "value": "139"}, 
-                        {"name": "福建省", "value": "355"}, 
-                        {"name": "西藏自治区", "value": "1"}, 
-                        {"name": "贵州省", "value": "147"}, 
-                        {"name": "辽宁省", "value": "146"}, 
-                        {"name": "重庆市", "value": "579"}, 
-                        {"name": "陕西省", "value": "286"}, 
-                        {"name": "青海省", "value": "18"}, 
-                        {"name": "香港", "value": "1035"}, 
-                        {"name": "黑龙江省", "value": "930"}]
+                data : [
+                    {
+                        "name": "上海市",
+                        "value": "46254"
+                    },
+                    {
+                        "name": "云南省",
+                        "value": "2116"
+                    },
+                    {
+                        "name": "内蒙古自治区",
+                        "value": "1716"
+                    },
+                    {
+                        "name": "北京市",
+                        "value": "1891"
+                    },
+                    {
+                        "name": "台湾省",
+                        "value": "56468"
+                    },
+                    {
+                        "name": "吉林省",
+                        "value": "39982"
+                    },
+                    {
+                        "name": "四川省",
+                        "value": "2002"
+                    },
+                    {
+                        "name": "天津市",
+                        "value": "1802"
+                    },
+                    {
+                        "name": "宁夏回族自治区",
+                        "value": "122"
+                    },
+                    {
+                        "name": "安徽省",
+                        "value": "1063"
+                    },
+                    {
+                        "name": "山东省",
+                        "value": "2678"
+                    },
+                    {
+                        "name": "山西省",
+                        "value": "415"
+                    },
+                    {
+                        "name": "广东省",
+                        "value": "6986"
+                    },
+                    {
+                        "name": "广西壮族自治区",
+                        "value": "1573"
+                    },
+                    {
+                        "name": "新疆维吾尔自治区",
+                        "value": "999"
+                    },
+                    {
+                        "name": "江苏省",
+                        "value": "2180"
+                    },
+                    {
+                        "name": "江西省",
+                        "value": "1198"
+                    },
+                    {
+                        "name": "河北省",
+                        "value": "1993"
+                    },
+                    {
+                        "name": "河南省",
+                        "value": "2883"
+                    },
+                    {
+                        "name": "浙江省",
+                        "value": "2998"
+                    },
+                    {
+                        "name": "海南省",
+                        "value": "288"
+                    },
+                    {
+                        "name": "湖北省",
+                        "value": "68398"
+                    },
+                    {
+                        "name": "湖南省",
+                        "value": "1374"
+                    },
+                    {
+                        "name": "澳门",
+                        "value": "82"
+                    },
+                    {
+                        "name": "甘肃省",
+                        "value": "681"
+                    },
+                    {
+                        "name": "福建省",
+                        "value": "3005"
+                    },
+                    {
+                        "name": "西藏自治区",
+                        "value": "1"
+                    },
+                    {
+                        "name": "贵州省",
+                        "value": "179"
+                    },
+                    {
+                        "name": "辽宁省",
+                        "value": "1617"
+                    },
+                    {
+                        "name": "重庆市",
+                        "value": "694"
+                    },
+                    {
+                        "name": "陕西省",
+                        "value": "3276"
+                    },
+                    {
+                        "name": "青海省",
+                        "value": "93"
+                    },
+                    {
+                        "name": "香港",
+                        "value": "329147"
+                    },
+                    {
+                        "name": "黑龙江省",
+                        "value": "2877"
+                    }
+                ]
 
             }
         }
@@ -153,7 +255,7 @@ class ChinaMap extends Component {
     }
     render() {
         return <div ref={this.eChartsRef} style={{
-            width: 1000,
+            width: 1200,
             height: 800,
             margin: 10
         }}></div>;

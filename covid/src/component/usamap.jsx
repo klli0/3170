@@ -39,7 +39,7 @@ class USAMap extends Component {
 
             title: {
                 // 标题组件
-                text: "USA Covid-17 Statistics", // 主标题文本
+                text: "美国累计新冠确诊统计", // 主标题文本
                 top: 30,
                 left: "center",
                 textStyle: {
@@ -52,7 +52,7 @@ class USAMap extends Component {
                 type: "continuous", // 连续型
                 left: "right", // visualMap 组件离容器左侧的距离,值为`'left'`, `'center'`, `'right'`，组件会根据相应的位置自动对齐。
                 min: 0,
-                max: 30000,
+                max: 1000000,
                 inRange: {     // 定义 **在选中范围中** 的视觉元素
                     // 图元的颜色
                     // 这里以这数组所填写的颜色点作为基准，形成一种『渐变』的色带，数据映射到这个色带上
@@ -64,7 +64,7 @@ class USAMap extends Component {
                     "#942005"
                     ]
                 },
-                text: [`最大值：${30000}`, 0],  // 两端的文本,如 `['High', 'Low']`
+                text: [`最大值：${1000000}`, 0],  // 两端的文本,如 `['High', 'Low']`
                 textStyle: {
                     color: "#000" // visualMap 文字的颜色。
                 },
@@ -125,83 +125,264 @@ class USAMap extends Component {
 
                 
                 
-                data: [{"name": "Alaska", "value": "339"}, 
-                        {"name": "Alabama", "value": "6075"}, 
-                        {"name": "Arkansas", "value": "2810"}, 
+                data: [
+                    {
+                        "name": "Alaska",
+                        "value": "243466"
+                    },
+                    {
+                        "name": "Alabama",
+                        "value": "1299729"
+                    },
+                    {
+                        "name": "Arkansas",
+                        "value": "834995"
+                    },
+                    {
+                        "name": "American Samoa",
+                        "value": "5766"
+                    },
+                    {
+                        "name": "Arizona",
+                        "value": "2019174"
+                    },
+                    {
+                        "name": "California",
+                        "value": "9177609"
+                    },
+                    {
+                        "name": "Colorado",
+                        "value": "1379243"
+                    },
+                    {
+                        "name": "Cinnecticut",
+                        "value": "751810"
+                    },
 
-                        /*AS*/
-                        {"name": "American Samora", "value": "0"}, 
-                        {"name": "Arizona", "value": "6045"}, 
-                        {"name": "California", "value": "39254"}, 
-                        {"name": "Colorado", "value": "12430"}, 
-                        {"name": "Connecticut", "value": "23921"}, 
-                        
-                        /*DC*/
-                        {"name": "DC", "value": "3528"}, 
-                        {"name": "Delaware", "value": "3544"}, 
-                        {"name": "Florida", "value": "29583"}, 
-                        
-                        /*FSM*/
-                        {"name": "FSM", "value": "0"}, 
-                        {"name": "Georgia", "value": "21537"}, 
-                        {"name": "GU", "value": "141"}, 
-                        {"name": "Hawaii", "value": "594"}, 
-                        {"name": "Iowa", "value": "4445"}, 
-                        {"name": "Idaho", "value": "1870"}, 
-                        {"name": "Illinois", "value": "39658"}, 
-                        {"name": "Indiana", "value": "13680"}, 
-                        {"name": "Kansas", "value": "2777"}, 
-                        {"name": "Kentucky", "value": "3587"}, 
-                        {"name": "Louisiana", "value": "26140"}, 
-                        {"name": "Massachusetts", "value": "50969"}, 
-                        {"name": "Maryland", "value": "16616"}, 
-                        {"name": "Maine", "value": "989"}, 
-                        {"name": "Michigan", "value": "47572"}, 
-                        {"name": "Minnesota", "value": "3185"}, 
-                        {"name": "Missouri", "value": "7304"}, 
 
-                        /*MP*/
-                        {"name": "Northern Mariana", "value": "14"}, 
-                        {"name": "Mississippi", "value": "6947"}, 
-                        {"name": "Montana", "value": "444"}, 
-                        {"name": "North Carolina", "value": "8192"}, 
-                        {"name": "North Dakota", "value": "748"}, 
-                        {"name": "Nebraska", "value": "2526"}, 
-                        {"name": "New Hampshire", "value": "1720"}, 
-                        {"name": "New Jersey", "value": "102196"}, 
-                        {"name": "New Mexico", "value": "2521"}, 
-                        {"name": "Nevada", "value": "4398"}, 
-                        {"name": "New York", "value": "121117"}, 
+                    {
+                        "name": "DC",
+                        "value": "141355"
+                    },
+                    {
+                        "name": "DDelawareE",
+                        "value": "261399"
+                    },
+                    {
+                        "name": "Florida",
+                        "value": "5908075"
+                    },
 
-                        /*NYC*/
-                        {"name": "NYC", "value": "160863"}, 
-                        {"name": "Ohio", "value": "15169"}, 
-                        {"name": "Oklahoma", "value": "3788"}, 
-                        {"name": "Oregon", "value": "2177"}, 
-                        {"name": "Pennsylvania", "value": "40279"}, 
 
-                        /*PR*/
-                        {"name": "Puerto Rico", "value": "759"}, 
+                    {
+                        "name": "FSM",
+                        "value": "9"
+                    },
+                    {
+                        "name": "Georgia",
+                        "value": "2509160"
+                    },
 
-                        /*PW*/
-                        {"name": "PW", "value": "0"}, 
-                        {"name": "Rhode Island", "value": "5568"}, 
 
-                        /*RMI*/
-                        {"name": "RMI", "value": "0"}, 
-                        {"name": "South Carolina", "value": "5030"}, 
-                        {"name": "South Dakota", "value": "2040"}, 
-                        {"name": "Tennessee", "value": "8600"}, 
-                        {"name": "Texas", "value": "22806"}, 
-                        {"name": "Utah", "value": "3782"}, 
-                        {"name": "Virginia", "value": "12366"}, 
+                    {
+                        "name": "Guam",
+                        "value": "47973"
+                    },
+                    {
+                        "name": "Hawaii",
+                        "value": "238763"
+                    },
+                    {
+                        "name": "Iowa",
+                        "value": "762036"
+                    },
+                    {
+                        "name": "Idaho",
+                        "value": "445545"
+                    },
+                    {
+                        "name": "Illinois",
+                        "value": "3114036"
+                    },
+                    {
+                        "name": "Indiana",
+                        "value": "1696759"
+                    },
+                    {
+                        "name": "Kansas",
+                        "value": "773796"
+                    },
+                    {
+                        "name": "Kentucky",
+                        "value": "1325964"
+                    },
+                    {
+                        "name": "Louisiana",
+                        "value": "1171633"
+                    },
+                    {
+                        "name": "Massachusetts",
+                        "value": "1738231"
+                    },
+                    {
+                        "name": "Maryland",
+                        "value": "1025925"
+                    },
+                    {
+                        "name": "Maine",
+                        "value": "242033"
+                    },
+                    {
+                        "name": "Michigan",
+                        "value": "2411464"
+                    },
+                    {
+                        "name": "Minnesota",
+                        "value": "1443859"
+                    },
+                    {
+                        "name": "Missouri",
+                        "value": "1421159"
+                    },
 
-                        {"name": "U.S. Virgin Islands", "value": "54"}, 
-                        {"name": "Vermont", "value": "770"}, 
-                        {"name": "Washington", "value": "12956"}, 
-                        {"name": "Wisconsin", "value": "5356"}, 
-                        {"name": "West Virginia", "value": "1010"}, 
-                        {"name": "Wyoming", "value": "473"}]
+
+                    {
+                        "name": "Northern Marianas",
+                        "value": "11263"
+                    },
+                    {
+                        "name": "Mississippi",
+                        "value": "796840"
+                    },
+                    {
+                        "name": "Montana",
+                        "value": "273489"
+                    },
+                    {
+                        "name": "North Carolina",
+                        "value": "2658907"
+                    },
+                    {
+                        "name": "North Dakota",
+                        "value": "240713"
+                    },
+                    {
+                        "name": "Nebraska",
+                        "value": "479181"
+                    },
+                    {
+                        "name": "New Hampshire",
+                        "value": "307528"
+                    },
+                    {
+                        "name": "New Jersey",
+                        "value": "2244918"
+                    },
+                    {
+                        "name": "New Mexico",
+                        "value": "521018"
+                    },
+
+
+                    {
+                        "name": "Nevada",
+                        "value": "717368"
+                    },
+                    {
+                        "name": "New York",
+                        "value": "2750530"
+                    },
+                    {
+                        "name": "NYC",
+                        "value": "2361037"
+                    },
+                    {
+                        "name": "Ohio",
+                        "value": "2688327"
+                    },
+                    {
+                        "name": "Oklahoma",
+                        "value": "1039415"
+                    },
+                    {
+                        "name": "Oregon",
+                        "value": "714346"
+                    },
+                    {
+                        "name": "Pennsylvania",
+                        "value": "2808171"
+                    },
+
+
+                    {
+                        "name": "Puerto Rico",
+                        "value": "516612"
+                    },
+
+
+                    {
+                        "name": "PW",
+                        "value": "4396"
+                    },
+                    {
+                        "name": "Rhode Island",
+                        "value": "350016"
+                    },
+
+
+                    {
+                        "name": "RMI",
+                        "value": "17"
+                    },
+                    {
+                        "name": "South Carolina",
+                        "value": "1474279"
+                    },
+                    {
+                        "name": "South Dakota",
+                        "value": "237535"
+                    },
+                    {
+                        "name": "Tennessee",
+                        "value": "2027895"
+                    },
+                    {
+                        "name": "Texas",
+                        "value": "6725359"
+                    },
+                    {
+                        "name": "Utah",
+                        "value": "930558"
+                    },
+                    {
+                        "name": "Virginia",
+                        "value": "1691279"
+                    },
+                    {
+                        "name": "U.S. Virgin Islands",
+                        "value": "16091"
+                    },
+                    {
+                        "name": "Vermont",
+                        "value": "112620"
+                    },
+                    {
+                        "name": "Washington",
+                        "value": "1487969"
+                    },
+                    {
+                        "name": "Wisconsin",
+                        "value": "1601444"
+                    },
+                    {
+                        "name": "West Virginia",
+                        "value": "499796"
+                    },
+                    {
+                        "name": "Wyoming",
+                        "value": "156392"
+                    }
+                ]
 
 
             },

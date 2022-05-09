@@ -18,7 +18,6 @@ class ChinaPieChart extends Component {
             },
             series: [
                 {
-                    name: 'Access From',
                     type: 'pie',
                     radius: '50%',
                     data: [

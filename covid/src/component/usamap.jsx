@@ -2,7 +2,7 @@ import * as echarts from 'echarts';
 import React, { Component } from 'react';
 import usa from '../resources/usageo.json';
 
-/*2022/05/08*/ 
+/*2022/05/08*/
 
 echarts.registerMap('usa', usa, {
     // 把阿拉斯加移到美国主大陆左下方
@@ -29,7 +29,7 @@ echarts.registerMap('usa', usa, {
 
 class USAMap extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.eChartsRef = React.createRef();
     }
@@ -57,11 +57,11 @@ class USAMap extends Component {
                     // 图元的颜色
                     // 这里以这数组所填写的颜色点作为基准，形成一种『渐变』的色带，数据映射到这个色带上
                     color: [ // 橘色效果
-                    "#fff",
-                    "#fedeb5",
-                    "#f96a35",
-                    "#c3380e",
-                    "#942005"
+                        "#fff",
+                        "#fedeb5",
+                        "#f96a35",
+                        "#c3380e",
+                        "#942005"
                     ]
                 },
                 text: [`最大值：${1000000}`, 0],  // 两端的文本,如 `['High', 'Low']`
@@ -123,8 +123,8 @@ class USAMap extends Component {
 
 
 
-                
-                
+
+
                 data: [
                     {
                         "name": "Alaska",
@@ -155,7 +155,7 @@ class USAMap extends Component {
                         "value": "1379243"
                     },
                     {
-                        "name": "Cinnecticut",
+                        "name": "Connecticut",
                         "value": "751810"
                     },
 
@@ -401,7 +401,8 @@ class USAMap extends Component {
         return <div ref={this.eChartsRef} style={{
             width: 1200,
             height: 800,
-            margin: 10
+            margin: 10,
+            marginLeft: 200
         }}></div>;
     }
 }

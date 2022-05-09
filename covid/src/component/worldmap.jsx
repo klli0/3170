@@ -4,11 +4,11 @@ import world from '../resources/world.json';
 
 echarts.registerMap("world", world);
 
-/*2022/05/08*/ 
+/*2022/05/08*/
 
 class WorldMap extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.eChartsRef = React.createRef();
     }
@@ -36,11 +36,11 @@ class WorldMap extends Component {
                     // 图元的颜色
                     // 这里以这数组所填写的颜色点作为基准，形成一种『渐变』的色带，数据映射到这个色带上
                     color: [ // 橘色效果
-                    "#fff",
-                    "#fedeb5",
-                    "#f96a35",
-                    "#c3380e",
-                    "#942005"
+                        "#fff",
+                        "#fedeb5",
+                        "#f96a35",
+                        "#c3380e",
+                        "#942005"
                     ]
                 },
                 text: [`最大值：${890000}`, 0],  // 两端的文本,如 `['High', 'Low']`
@@ -99,9 +99,9 @@ class WorldMap extends Component {
                 top: "20%", // 距离顶部距离
                 left: "10%",
                 right: "10%",
-                
 
-                nameMap:{
+
+                nameMap: {
                     "Afghanistan": "阿富汗",
                     "Angola": "安哥拉",
                     "Albania": "阿尔巴尼亚",
@@ -291,8 +291,8 @@ class WorldMap extends Component {
                     "Zambia": "赞比亚",
                     "Zimbabwe": "津巴布韦"
                 },
-                
-                
+
+
                 data: [
                     {
                         "name": "不丹",
@@ -1172,7 +1172,8 @@ class WorldMap extends Component {
         return <div ref={this.eChartsRef} style={{
             width: 1200,
             height: 800,
-            margin: 10
+            margin: 10,
+            marginLeft: 200
         }}></div>;
     }
 }

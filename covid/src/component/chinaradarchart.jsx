@@ -78,12 +78,12 @@ class ChinaRadarChart extends Component {
         myChart.setOption(this.state.option);
     }
     render() {
-        return <div ref={this.eChartsRef} style={{
+        return <div><div ref={this.eChartsRef} style={{
             width: 1200,
             height: 800,
             margin: 100,
             marginLeft: 200
-        }}></div>;
+        }}></div><p style={{ marginLeft: 100 }}>Up to 2022-04-24</p></div>;
     }
 }
 
